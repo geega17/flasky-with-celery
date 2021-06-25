@@ -10,6 +10,7 @@ Quick Setup
 
 1. Clone this repository.
 2. Create a virtualenv and install the requirements (`pip install requirements/dev.txt`)
+2a. You may need to replace "from cgi import escape" to "from html import escape" in lib/python3.8/site-packages/wtforms/widgets/core.py
 3. Run the database migrations (`python manage.py db upgrade`)
 4. Open a second terminal window and start a local Redis server (if you are on Linux or Mac, execute `run-redis.sh` to install and launch a private copy).
 5. Open a third terminal window. Set two environment variables `MAIL_USERNAME` and `MAIL_PASSWORD` to a valid Gmail account credentials (these will be used to send emails through Gmail's SMTP server). Then start a Celery worker: `venv/bin/celery worker -A celery_worker.celery --loglevel=info`.
